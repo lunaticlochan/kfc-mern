@@ -18,7 +18,7 @@ app.use(
     cookie: { secure: false }, // Set true for HTTPS; use 'false' for local development
   })
 );
-mongoose.connect("mongodb://0.0.0.0:27017/reactkfc");
+mongoose.connect("mongodb+srv://nks:cloudpbl@pbl.qi4mb.mongodb.net/?retryWrites=true&w=majority&appName=pbl");
 
 app.post("/register", (req, res) => {
   UserModel.create(req.body)
