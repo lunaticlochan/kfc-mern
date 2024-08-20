@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "./ToastContext";
-
 
 function Signup() {
   const [passwordStrength, setPasswordStrength] = useState("");
@@ -15,11 +14,10 @@ function Signup() {
   const navigate = useNavigate();
   const showToast = useToast();
 
-
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3001/register", {
+      .post("/api/register", {
         username: username,
         password: password,
       })
@@ -169,7 +167,6 @@ function Signup() {
           </div>
         </div>
       </form>
-      
     </div>
   );
 }

@@ -16,7 +16,7 @@ function Signin() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3001/login", {
+      .post("/api/login", {
         username: username,
         password: password,
       })
@@ -38,13 +38,17 @@ function Signin() {
 
   return (
     <div className="position-relative">
-
       <Container className="mt-0">
-        <Form onSubmit={handleSubmit} className="shadow rounded p-4 col-md-6 offset-md-3">
+        <Form
+          onSubmit={handleSubmit}
+          className="shadow rounded p-4 col-md-6 offset-md-3"
+        >
           <h1 className="text-center">Login</h1>
           <p className="text-center">Enter your details to login</p>
           <Form.Group className="mb-3" controlId="username">
-            <Form.Label><b>Username</b></Form.Label>
+            <Form.Label>
+              <b>Username</b>
+            </Form.Label>
             <Form.Control
               type="text"
               placeholder="Enter username"
@@ -55,7 +59,9 @@ function Signin() {
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="password">
-            <Form.Label><b>Password</b></Form.Label>
+            <Form.Label>
+              <b>Password</b>
+            </Form.Label>
             <Form.Control
               type="password"
               placeholder="Enter Password"

@@ -26,11 +26,11 @@ function PaymentsPage() {
       username: localStorage.getItem("username"), // Assuming you store the username in localStorage
     };
 
-    console.log("hello")
+    console.log("hello");
 
     axios
-      .post("http://localhost:3001/cart/checkout", orderData)
-      
+      .post("/api/cart/checkout", orderData)
+
       .then((response) => {
         console.log("Order confirmed:", response.data);
         // Optionally clear the cart

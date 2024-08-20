@@ -14,7 +14,7 @@ function Menu() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get("http://localhost:3001/menu").then((result) => {
+    axios.get("/api/menu").then((result) => {
       setItems(result.data);
     });
   }, []);

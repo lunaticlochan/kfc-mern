@@ -28,11 +28,10 @@ function Manage() {
   const showToast = useToast();
   const navigate = useNavigate();
 
-
   const handleChangePassword = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3001/changepassword", {
+      .post("/api/changepassword", {
         username: username,
         oldpassword: oldpassword,
         newpassword: newpassword,
@@ -54,7 +53,7 @@ function Manage() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/history/${username}`)
+      .get(`/api/history/${username}`)
       .then((result) => {
         setOrders(result.data);
       })
@@ -70,7 +69,7 @@ function Manage() {
 
   const [items, setItems] = useState([]);
   useEffect(() => {
-    axios.get("http://localhost:3001/menu").then((result) => {
+    axios.get("/api/menu").then((result) => {
       setItems(result.data);
     });
   }, []);
@@ -88,7 +87,7 @@ function Manage() {
 
   const submitRating = () => {
     axios
-      .post("http://localhost:3001/rate-item", {
+      .post("/api/rate-item", {
         itemName: selectedItem,
         rating: parseFloat(rating),
       })
@@ -105,7 +104,8 @@ function Manage() {
   };
 
   return (
-    <><br></br>
+    <>
+      <br></br>
       <Container className="manage-container">
         <h2 className="manage-heading">Manage Account</h2>
         <hr className="manage-divider" />
